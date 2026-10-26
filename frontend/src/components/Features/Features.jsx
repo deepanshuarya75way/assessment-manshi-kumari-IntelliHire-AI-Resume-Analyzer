@@ -47,6 +47,7 @@ function Features() {
             >
               <div className="w-13 h-1 bg-blue-100 rounded-xl flex items-center justify-center text-3xl">
                 {feature.icon}
+  
               </div>
 
               <h3 className="text-2xl font-bold mt-6">
