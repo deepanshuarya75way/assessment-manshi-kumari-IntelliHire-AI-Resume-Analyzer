@@ -49,16 +49,22 @@ function UploadResume() {
       const data = await response.json();
 
       console.log(data.analysis);
+
+      const analysisWithResume={
+        ...data.analysis,
+        resumeId: data.resumeId
+      };
+
       sessionStorage.setItem(
         "atsAnalysis",
-        JSON.stringify(data.analysis)
+        JSON.stringify(analysisWithResume)
       );
 
 
       // Result ko ATS Report page par bhejo
       navigate("/report", {
         state: {
-          analysis: data.analysis
+          analysis: analysisWithResume
         }
       });
 

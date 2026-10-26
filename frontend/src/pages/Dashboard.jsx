@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ResumeChat from "../components/ResumeChat/ResumeChat.jsx"
 
 function Dashboard() {
   const [analyses, setAnalyses] = useState([]);

@@ -155,8 +155,35 @@ return (
         {error}
       </p>
     )}
+    
+    <form onSubmit={handleSend} className="flex items-end gap-2 border-t p-3">
+      <textarea value={question}
+      onChange = {(event)=>setQuestion(event.target.val)}
+      onKeyDown={(event)=>{
+        if(event.key==="Enter" && !event.shiftKey){
+          event.preventDefault();
+        }
+      }}
 
+      placeholder="Ask somethings about resume....."
+      rows={2}
+      maxLength={2000}
+      disabled={loading || sending|| !resumeId}
+      className= "min-w-0 flex-1 resize-none rounded-xl border p-3 outline-none focus:border-blue-500 focus:ring-2 focus-blue-100"
+      />
 
+      <button
+      type="submit"
+      disabled={loading ||sending || !question.trim() || !resumeId}
+      className= "rounded-xl bg-blue-600 px-4 py-3 font-semibold text-white hover:bg-blue-700 disabled:opacity-50">
+          {sending ? "sending ": "send"}
+      </button>
+      </form>
+
+   <p className="px-4 pb-3 text-xs text-gray-500">
+      answer are based on uploaded resume
+
+     </p>
 
   </section>
 )
